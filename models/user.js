@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Post }) {
       // define association here
-      this.hasMany(Post, { foreignKey: 'userId', as: 'posts'})
+
+      // onDelete: CASCADE - will help to delete all the posts if the main user associated with the post is deleted from the database
+      this.hasMany(Post, { foreignKey: 'userId', as: 'posts', onDelete: 'cascade', hooks: true})
     }
 
     toJSON(){
@@ -34,6 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notNull: {msg: 'User must have a Email'},
         notEmpty: {msg: 'Email must not be Empty'},
