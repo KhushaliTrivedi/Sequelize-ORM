@@ -19,52 +19,40 @@ This project demonstrates a basic CRUD (Create, Read, Update, Delete) API using 
 
 ### 1. Clone the repository
 
-\```bash
 git clone https://github.com/KhushaliTrivedi/Sequelize-ORM.git
 cd Sequelize-ORM
-\```
 
 ## 🛠 Setup Instructions
 
 ### 2. Install dependencies
 
-\```bash
 npm install
-\```
 
 ### 3. Setup `.env`
 
 Create a `.env` file and configure your database:
 
-\```ini
 DB_NAME=your_db_name
 DB_USER=your_db_user
 DB_PASSWORD=your_password
 DB_HOST=localhost
 DB_DIALECT=postgres # or mysql
-\```
 
 ### 4. Run Migrations (if defined)
 
 If you're using Sequelize CLI:
 
-\```bash
 npx sequelize-cli db:migrate
-\```
 
 Otherwise, make sure your `models/index.js` handles sync:
 
-\```js
 sequelize.sync({ alter: true });
-\```
 
 ### 5. Start the server
 
-\```bash
 npm start
 or
 node app.js
-\```
 
 Server will run on: [http://localhost:5000](http://localhost:5000)
 
